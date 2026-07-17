@@ -1,70 +1,87 @@
-# Cohort Retention Analysis for E‑Commerce
+# 📊 Cohort Retention Analysis — Olist E-Commerce
 
-**Project:** Customer retention analysis using cohort-based approach.
+Customer retention analysis using a cohort-based approach to understand purchasing behaviour over time.
 
-**Goal:** Understand how long customers stay active after their first purchase and identify retention patterns.
+**Business Question:** How long do customers remain active after their first purchase — and what does this mean for the business?
 
-**Tools:** Python (pandas, matplotlib, seaborn), Jupyter Notebook
+---
 
-**Dataset:** Brazilian E‑Commerce Public Dataset (Olist) — 100k+ orders.
+## 📋 Project Overview
+
+Olist is a Brazilian e-commerce marketplace selling durable goods (electronics, home appliances, furniture). Using transactional data from 100k+ orders, customers were grouped into monthly cohorts based on their first purchase date, and retention rates were tracked over time.
+
+**Hypothesis going in:** Most customers make only one purchase — retention will be low due to the nature of the business model (durable goods marketplace).
 
 ---
 
 ## 📊 Key Findings
 
-| Time after first purchase | Retention Rate |
-|---------------------------|----------------|
-| 1 month                   | 5.2%           |
-| 2 months                  | 0.3%           |
-| 3 months                  | 0.3%           |
-| 6 months                  | 0.3%           |
+| Months after first purchase | Average Retention Rate |
+|-----------------------------|------------------------|
+| Month 1 | 0.5% |
+| Month 2 | 0.3% |
+| Month 3 | 0.3% |
+| Month 6 | 0.3% |
 
-**Visualisation:** Cohort retention heatmap  
+**The hypothesis was confirmed.** Retention drops to near zero after the first purchase across all cohorts (2017–2018).
+
+### Retention Heatmap
 ![Retention Heatmap](outputs/retention_heatmap.png)
 
 ---
 
-## 📌 Business Context
+## 💡 Business Conclusions
 
-This dataset represents a **typical e‑commerce marketplace** selling durable goods (electronics, home appliances, etc.). Customers rarely need to repurchase the same category immediately.
+Low retention is **not a failure** — it reflects the business model. Customers buying electronics or furniture do not repurchase within months. However, this creates a structural dependency on new customer acquisition.
 
-**Therefore:**
-- Low retention is **not a failure** — it's a feature of the business model
-- **Customer acquisition** matters more than retention for this type of store
-- Retention campaigns may have limited ROI unless the store introduces consumables or subscriptions
+**Recommendations:**
 
----
-
-## 💡 Recommendations
-
-| Focus Area | Action |
-|------------|--------|
-| **Acquisition** | Invest in marketing channels that bring new customers efficiently |
-| **First‑time experience** | Optimise checkout and delivery to convert one‑time buyers into repeat customers |
-| **Loyalty programme** | Consider a points‑based system or personalised offers for high‑value segments |
-| **Product strategy** | Introduce consumables or subscription options to increase repeat purchase rates |
+| Priority | Action |
+|----------|--------|
+| 🔴 **High** | Expand into high-frequency categories (consumables, accessories) to drive repeat purchases |
+| 🟡 **Medium** | Introduce a loyalty programme or next-purchase discount to incentivise return visits |
+| 🟡 **Medium** | Offer value-added services (free delivery, installation, extended warranty) to increase purchase value |
+| 🟢 **Lower** | Run personalised remarketing campaigns (email, product recommendations) to re-engage dormant customers |
 
 ---
 
-## 🛠️ Tools & Techniques
-
-| Task | Tool / Library |
-|------|----------------|
-| Data loading & cleaning | pandas |
-| Cohort grouping | pandas + datetime |
-| Retention calculation | custom aggregation with `.pivot()` |
-| Visualisation | matplotlib, seaborn (heatmap) |
-| Development environment | Jupyter Notebook |
-
----
-
-## 📂 How to Reproduce
+## 🔧 How to Reproduce
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/leontiewaa/cohort-retention-analysis.git
-2. Install dependencies:
-    ```bash
-    pip install pandas numpy matplotlib seaborn jupyter
+   cd cohort-retention-analysis
+   ```
 
-3. Run 02_Cohort_Analysis.ipynb in Jupyter Notebook.
+2. Install dependencies:
+   ```bash
+   pip install pandas numpy matplotlib seaborn jupyter
+   ```
+
+3. Add the Olist dataset to `data/raw/`:
+   - Download from [Kaggle — Brazilian E-Commerce Dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
+   - Place `olist_orders_dataset.csv` and `olist_customers_dataset.csv` in `data/raw/`
+
+4. Open and run `notebooks/02_Cohort_Analysis.ipynb`
+
+---
+
+## 🛠️ Stack
+
+| Tool | Purpose |
+|------|---------|
+| **Python (pandas, numpy)** | Data loading, cleaning, cohort calculations |
+| **matplotlib, seaborn** | Retention heatmap visualisation |
+| **Jupyter Notebook** | Development environment |
+
+---
+
+## 📂 Data Source
+
+[Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) — real e-commerce data (100k+ orders), Kaggle.
+
+---
+
+## 📅 Status
+
+✅ Completed — July 2026
