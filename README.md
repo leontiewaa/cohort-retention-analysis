@@ -63,6 +63,7 @@ Low retention is **not a failure** — it reflects the business model. Customers
    - Place `olist_orders_dataset.csv` and `olist_customers_dataset.csv` in `data/raw/`
 
 4. Open and run `notebooks/02_Cohort_Analysis.ipynb`
+5. Tableau: https://public.tableau.com/app/profile/anastasia.leo8646/viz/OList_17866147520710/Dashboard1?publish=yes
 
 ---
 
